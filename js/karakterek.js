@@ -33,7 +33,7 @@ function generateTable() {
             <img src="${gameOfThronesCharacters[i].picture}" alt="portrait">
             </td>
             <td>
-            <textarea id="input__text${i}" readonly>${gameOfThronesCharacters[i].bio}</textarea>
+            <input type="text" id="input__text${i}" value="${gameOfThronesCharacters[i].bio}">
             </td>
             <td>
             <input type="button" id="button__edit" onclick="changeBio(${i})" value="Edit">
@@ -50,7 +50,7 @@ generateTable();
 
 function changeBio(index) {
   var textArea = document.querySelector('#input__text' + index);
-  var newTextarea = `<textarea class="input__text2">${gameOfThronesCharacters[index].bio}</textarea>`;
+  var newTextarea = textArea.contentEditable = true;
   textArea[index] = newTextarea.innerHTML;
   console.log(textArea);
 
